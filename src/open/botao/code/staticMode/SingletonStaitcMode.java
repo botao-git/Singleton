@@ -1,6 +1,8 @@
 package open.botao.code.staticMode;
 
-public class SingletonStaitcMode {
+import open.botao.code.test.SingletonLazyModeTest;
+
+public class SingletonStaitcMode implements Runnable{
 
 	private SingletonStaitcMode(){
 		
@@ -14,24 +16,26 @@ public class SingletonStaitcMode {
 		return SingletonStaticHolde.instance;
 	}
 	
-	
-	public static void main(String[] args) {
-		SingletonStaitcMode mode1 = SingletonStaitcMode.getInstance();
-		SingletonStaitcMode mode2 = SingletonStaitcMode.getInstance();
-		SingletonStaitcMode mode3 = SingletonStaitcMode.getInstance();
-		SingletonStaitcMode mode4 = SingletonStaitcMode.getInstance();
-		SingletonStaitcMode mode5 = SingletonStaitcMode.getInstance();
-		SingletonStaitcMode mode6 = SingletonStaitcMode.getInstance();
-		SingletonStaitcMode mode7 = SingletonStaitcMode.getInstance();
-		System.out.println(mode1);
-		System.out.println(mode2);
-		System.out.println(mode3);
-		System.out.println(mode4);
-		System.out.println(mode5);
-		System.out.println(mode6);
-		System.out.println(mode7);
+
+	@Override
+	public void run() {
+		for (int i = 0; i < 3; i++) {
+			
+			SingletonStaitcMode mode = SingletonStaitcMode.getInstance();
+			System.out.println(mode);
+			
+			System.out.println(Thread.currentThread().getName()+"<<<<<<<<<<<<<");
+		}
 		
 	}
+	public static void main(String[] args) {
+		for (int i = 0; i < 20; i++) {
+			System.out.println("---------------------");
+			new Thread(new SingletonStaitcMode()).start();
+		}
+	}
+
+
 	
 	
 	

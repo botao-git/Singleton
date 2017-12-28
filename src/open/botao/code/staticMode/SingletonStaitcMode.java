@@ -1,7 +1,5 @@
 package open.botao.code.staticMode;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
-
 public class SingletonStaitcMode {
 
 	private SingletonStaitcMode(){

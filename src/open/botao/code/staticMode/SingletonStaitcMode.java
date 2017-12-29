@@ -1,7 +1,5 @@
 package open.botao.code.staticMode;
 
-import open.botao.code.test.SingletonLazyModeTest;
-
 public class SingletonStaitcMode implements Runnable{
 
 	private SingletonStaitcMode(){
